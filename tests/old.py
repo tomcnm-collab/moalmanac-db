@@ -4,6 +4,7 @@ import unittest
 from utils import json_utils
 from utils import read
 
+
 class Base(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -90,7 +91,7 @@ class TestDataIntegrity(Base):
         for record_type, records in self.data.items():
             with self.subTest(record_type=record_type):
                 idx_values = [record['id'] for record in records]
-                idx_range = list(range(0, len(records)))
+                idx_range = list(range(len(records)))
                 if not idx_values == idx_range:
                     missing_ids = [idx for idx in idx_range if idx not in idx_values]
                     missing_ids_str = ", ".join(str(idx) for idx in missing_ids)

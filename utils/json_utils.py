@@ -6,7 +6,7 @@ def get_record_by_key_value(
     value: typing.Any,
     key: str = "id",
     strict: bool = True,
-) -> typing.Optional[dict] | None:
+) -> dict | None:
     """
     Retrieves a single record where a specified key matches the given value.
     Raises ValueError if zero or multiple matches are found, unless strict is False.

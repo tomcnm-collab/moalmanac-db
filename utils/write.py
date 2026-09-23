@@ -42,8 +42,8 @@ def dictionary(
             outfile.write(json_object)
         if not quiet:
             print(f"JSON successfully written to {file}")
-    except IOError as e:
-        raise IOError(f"Failed to write to file {file}: {e}")
+    except OSError as e:
+        raise OSError(f"Failed to write to file {file}: {e}")
 
 
 def records(data: list[dict], file: str) -> None:
@@ -75,5 +75,5 @@ def records(data: list[dict], file: str) -> None:
         with open(file, "w") as outfile:
             outfile.write(json_object)
         print(f"JSON successfully written to {file}")
-    except IOError as e:
-        raise IOError(f"Failed to write to file {file}: {e}")
+    except OSError as e:
+        raise OSError(f"Failed to write to file {file}: {e}")

@@ -3,6 +3,7 @@ import json
 from tests import helpers
 from utils import json_utils
 
+
 def test_document_url_matches_citation(data):
     """
     Assess if `url` field matches the url contained in the `citation` for documents where the url should be
@@ -24,9 +25,7 @@ def test_document_url_matches_citation(data):
     for record in relevant_records:
         cited_url = record['urls'][0]
         cited_url = json_utils.get_record_by_key_value(records=data['urls'], key='id', value=cited_url)
-        if not isinstance(cited_url, dict):
-            failed_records.append(record)
-        elif cited_url['url'] not in record['description']:
+        if not isinstance(cited_url, dict) or cited_url['url'] not in record['description']:
             failed_records.append(record)
         else:
             continue
